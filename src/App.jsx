@@ -24,12 +24,27 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
+  const removeTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+  const updateTodos = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
   return (
     <div className=" min-h-screen bg-gray-300 bg-[url('./assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat">
       <Header />
       <main className="container mx-auto mt-8 px-4">
         <TodoCreate createTodo={createTodo} />
-        <TodoList todos={todos} />
+        <TodoList
+          todos={todos}
+          removeTodo={removeTodo}
+          updateTodos={updateTodos}
+        />
         <TodoComputed />
         <TodoFilter />
       </main>
