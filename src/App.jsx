@@ -27,12 +27,18 @@ function App() {
   const removeTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
+
   const updateTodos = (id) => {
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
+  };
+
+  const itemLeft = todos.filter((todo) => !todo.completed).length;
+  const clearCompleted = () => {
+    setTodos(todos.filter((todo) => !todo.completed));
   };
 
   return (
@@ -45,7 +51,7 @@ function App() {
           removeTodo={removeTodo}
           updateTodos={updateTodos}
         />
-        <TodoComputed />
+        <TodoComputed itemLeft={itemLeft} clearCompleted={clearCompleted} />
         <TodoFilter />
       </main>
 
