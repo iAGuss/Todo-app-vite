@@ -68,7 +68,7 @@ function App() {
           updateTodos={updateTodos}
         />
         <TodoComputed itemLeft={itemLeft} clearCompleted={clearCompleted} />
-        <TodoFilter cambiofiltro={cambiofiltro} />
+        <TodoFilter cambiofiltro={cambiofiltro} filter={filter} />
       </main>
 
       <footer className=" mt-8 text-center">

@@ -4,7 +4,7 @@ import ChekIcon from "./icons/ChekIcon";
 function TodoItem({ todo, removeTodo, updateTodos }) {
   const { id, title, completed } = todo;
   return (
-    <article className="flex gap-4 border-b-2 border-b-gray-400 px-4 py-4">
+    <article className="flex gap-4 border-b-2 border-b-gray-400 px-4 py-4 dark:bg-slate-800">
       {/* <button className="inline-block h-5 w-5 rounded-full border-2 ">
         <ChekIcon/>10
       </button> */}
@@ -20,7 +20,7 @@ function TodoItem({ todo, removeTodo, updateTodos }) {
       </button>
       <p
         className={`grow  ${
-          completed ? "text-gray-400 line-through " : "text-gray-600 "
+          completed ? "text-gray-500 line-through " : "text-gray-300 "
         }`}
       >
         {title}
